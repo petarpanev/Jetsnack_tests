@@ -34,6 +34,12 @@ Start an Android emulator or connect a device, then run:
 
     pytest
 
+Each pytest run writes a timestamped Markdown report under results/. The report
+lists passed, failed, and skipped tests; for failures it includes the failure
+reason and captures an Appium screenshot under results/screenshots/ when the
+driver is available. The app is terminated and the Appium session is closed
+after each test. The generated results/ folder is excluded from Git.
+
 Configuration
 -------------
 
@@ -49,3 +55,26 @@ Screen objects and locators
 
 Put each screen's selectors in its screen class under screens/. Add tests under
 tests/ and share the Appium session through the driver fixture in tests/conftest.py.
+
+Automated scenarios
+---------------------------
+
+1. Application launches to Home screen.
+Main sanity check scenario if the application is built properly added functionalities and bugfixes do not break the launch.
+
+
+2. Search for an item and open the item details screen. Verify the result.
+As filters feature implementation is not ready for automation testing I choose this core scenario, which is part of the business flow with great value.
+
+
+What did I learn while doing it?
+---------------------------
+
+Copilot AI model assisted me as I expected. The result is excellent and the test automation framework can be extended faster and cleaner. 
+
+
+Scenarios to automate next
+---------------------------
+
+1. Open Filters screen from Search screen, filter Organic Nuts in price range $$ and verify the results: items are filtered properly.
+2. Add items to Cart.
